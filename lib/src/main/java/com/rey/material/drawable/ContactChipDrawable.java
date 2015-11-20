@@ -18,6 +18,8 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.FloatMath;
 
+import com.rey.material.util.MathUtil;
+
 /**
  * Created by Rey on 1/21/2015.
  */
@@ -89,7 +91,7 @@ public class ContactChipDrawable extends Drawable{
             return;
 
         int outerWidth = Math.max(0, bounds.width() - bounds.height() - mPaddingLeft - mPaddingRight);
-        mMetrics.width = (int) FloatMath.ceil(mTextPaint.measureText(mContactName, 0, mContactName.length()));
+        mMetrics.width = (int) MathUtil.ceil(mTextPaint.measureText(mContactName, 0, mContactName.length()));
 
         if(mBoringLayout == null)
             mBoringLayout = BoringLayout.make(mContactName, mTextPaint, outerWidth, Layout.Alignment.ALIGN_NORMAL, 1f, 1f, mMetrics, true, TextUtils.TruncateAt.END, outerWidth);
